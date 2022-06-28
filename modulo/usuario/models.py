@@ -2,7 +2,14 @@ from errno import EADDRNOTAVAIL
 from django.db import models
 from django.contrib.auth.models import User
 
-
+class Carnet_Paciente(models.Model):
+    nombre = models.CharField(max_length=50)
+    consultorio = models.CharField(max_length=30)
+    color = models.CharField(max_length=30, verbose_name='Rojo/Amarillo/Verde')
+    
+    def __str__(self):
+        return self.nombre
+    
 class Paciente(models.Model):
     Run = models.PositiveBigIntegerField(primary_key=True)
     dv = models.CharField(max_length=1)
@@ -16,18 +23,10 @@ class Paciente(models.Model):
     direccion = models.CharField(max_length=70)
     genero = models.CharField(max_length=1, verbose_name='Genero:(M / F)')
     correo = models.EmailField(max_length=150, unique=True)
+    idCarnet_Paciente = models.OneToOneField(Carnet_Paciente, models.CASCADE)
     
     def __str__(self):
         return self.nombre
-    
-class Carnet_Paciente(models.Model):
-    consultorio = models.CharField(max_length=30)
-    color = models.CharField(max_length=30, verbose_name='Rojo/Amarillo/Verde')
-    Run_Paciente = models.OneToOneField(Paciente, models.CASCADE)
-    dv = models.CharField(max_length=1)
-    
-    def __str__(self):
-        return "%s" % (self.Run_Paciente)
     
 class Doctor(models.Model):
     Run = models.PositiveBigIntegerField(unique=True)

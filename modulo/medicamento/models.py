@@ -54,5 +54,3 @@ class Lote(models.Model):
     vencimiento = models.DateField()
     idMedicamento = models.ForeignKey(Medicamento, models.CASCADE)
     
-    def __str__(self):
-        return self.descripcion

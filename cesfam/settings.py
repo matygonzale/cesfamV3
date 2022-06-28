@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'cesfam.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cesfamv2',
+        'NAME': 'cesfamv3',
         'USER': 'matias@cesfam-djangoo',
         'PASSWORD': 'cesfam_123',
         'HOST': 'cesfam-djangoo.mysql.database.azure.com',

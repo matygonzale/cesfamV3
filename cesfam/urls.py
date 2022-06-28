@@ -22,8 +22,8 @@ from cesfam.settings import STATIC_URL
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('modulo.prescripcion.urls')),
     path('usuarios/', include('modulo.usuario.urls')),
+    path('prescripcion/', include('modulo.prescripcion.urls')),
 ]
 
 if configuracion.DEBUG == True:

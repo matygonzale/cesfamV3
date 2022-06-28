@@ -1,3 +1,4 @@
+from unicodedata import name
 from django.db import router
 from django.urls import path, URLPattern
 from rest_framework import routers
@@ -10,6 +11,7 @@ router.register('api/reg_entregas', Reg_EntregasViewSets)
 router.register('api/cita_medica', Cita_MedicaViewSets)
 """
 urlpatterns = [
-    path('', index, name='index')
+    path('', index, name='index'),
+    path('pres/', get_prescripcion, name= 'get_prescripcion')
 ]
 

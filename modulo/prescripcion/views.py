@@ -9,10 +9,9 @@ def index(request):
 
 
 
-def get_prescripcion(self, request):
-    prescripciones = list(Prescripcion.objects.values())
-    if len(Prescripcion) > 0:
-        datos = {'message': "Success", 'prescripciones': prescripciones}
-    else:
-        datos = {'message': "Prescripciones not found..."} 
+def get_prescripcion(request):
+    prescripciones = list(Prescripcion.objects.all())
+  
+    datos = {'message': "Success", 'prescripciones': prescripciones}
+    
     return JsonResponse(datos)
